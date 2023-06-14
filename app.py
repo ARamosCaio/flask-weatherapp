@@ -1,16 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_migrate import Migrate
 from db import db
 
-def create_app():
+app = Flask(__name__)
 
-    app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+@app.route('/')
+def weather():
+    return render_template('index.html')
 
-    db.init_app(app)
-    migrate = Migrate(app, db)
-
-    with app.app_context():
-        db.create_all()
-    
-    return app
+if __name__ == '__main__':
+    app.run
