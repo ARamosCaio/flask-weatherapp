@@ -3,3 +3,6 @@
 ## Description
 
 An app that shows weather information for cities around the world
+
+## How To Run It
+
